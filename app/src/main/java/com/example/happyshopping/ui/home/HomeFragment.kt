@@ -19,7 +19,6 @@ class HomeFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home,container,false)
-        viewModel.getAllLimited()
         return binding.root
     }
 }

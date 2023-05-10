@@ -19,11 +19,12 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:textSize="16sp"
+            android:text="hello jalal"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tool:text="hello jalal" />
+            />
 
         <TextView
             android:id="@+id/home_phrase_head"
@@ -31,11 +32,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="4dp"
+            android:text="where shopping meets convenience"
             android:fontFamily="@font/poppins"
             app:layout_constraintBottom_toTopOf="@id/ads_card"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/home_welcome_message"
-            tool:text="where shopping meets convenience" />
+            />
         <androidx.cardview.widget.CardView
             android:id="@+id/ads_card"
             android:layout_width="match_parent"
@@ -105,21 +107,23 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:textSize="14sp"
+            android:text="cheapest"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ads_card"
-            tool:text="cheapest" />
+            />
         <TextView
             android:id="@+id/cheapest_title_see_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:text="see all"
             android:layout_marginTop="16dp"
             android:textSize="14sp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ads_card"
-            tool:text="cheapest" />
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cheapest_recycler_view"
             android:layout_width="match_parent"
@@ -138,22 +142,24 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
+            android:text="top_rated"
             android:textSize="14sp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cheapest_recycler_view"
-            tool:text="top_rated" />
+            />
         <TextView
             android:id="@+id/top_rated_title_see_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:text="see all"
             android:textSize="14sp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/top_rated_title"
             app:layout_constraintBottom_toBottomOf="@id/top_rated_title"
-            tool:text="see all" />
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/top_rated_recycler_view"
             android:layout_width="match_parent"
@@ -169,24 +175,26 @@
             android:id="@+id/limited_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="limited"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:textSize="14sp"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_rated_recycler_view"
-            tool:text="limited" />
+            />
         <TextView
             android:id="@+id/limited_title_see_all"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:textSize="14sp"
+            android:text="see all"
             android:fontFamily="@font/poppins_medium"
             app:layout_constraintTop_toTopOf="@id/limited_title"
             app:layout_constraintBottom_toBottomOf="@id/limited_title"
             app:layout_constraintEnd_toEndOf="parent"
-            tool:text="see all" />
+            />
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/limited_recycler_view"
             android:layout_width="match_parent"

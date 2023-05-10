@@ -19,29 +19,29 @@ class HomeViewModel:ViewModel() {
     private val _topRated = MutableLiveData<State<AllProductsResponse>>()
     private val _limited = MutableLiveData<State<AllProductsResponse>>()
     private val _cheapest = MutableLiveData<State<AllProductsResponse>>()
-    val topRated : MutableLiveData<State<AllProductsResponse>> get() = _topRated
-    val limited : MutableLiveData<State<AllProductsResponse>>  get() = _limited
-    val cheapest : MutableLiveData<State<AllProductsResponse>>  get() = _cheapest
+    val topRated : LiveData<State<AllProductsResponse>> get() = _topRated
+    val limited : LiveData<State<AllProductsResponse>>  get() = _limited
+    val cheapest : LiveData<State<AllProductsResponse>>  get() = _cheapest
     init {
         getAllTopRated()
         getAllLimited()
         getAllCheapest()
     }
-    fun getAllTopRated(){
+    private fun getAllTopRated(){
 
         repository.onGetAllProductsSuccess().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
             (::onGetAllTopRatedSuccess),
             (::onGetAllTopRatedError)
         )
     }
-    fun getAllLimited(){
+    private fun getAllLimited(){
 
         repository.onGetAllProductsSuccess().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
             (::onGetAllLimitedSuccess),
             (::onGetAllLimitedError)
         )
     }
-    fun getAllCheapest(){
+    private fun getAllCheapest(){
 
         repository.onGetAllProductsSuccess().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(
             (::onGetAllCheapestSuccess),
@@ -61,10 +61,7 @@ class HomeViewModel:ViewModel() {
     }
     private fun onGetAllLimitedSuccess(categoriesState:State<AllProductsResponse>){
         _limited.postValue(State.Loading)
-        categoriesState.toData()?.let {response->
-            _limited.postValue(State.Success(response))
-            Log.i("jalal",response[0].description.toString())
-        }
+        _limited.postValue(categoriesState)
     }
     private fun onGetAllLimitedError(error:Throwable)
     {
@@ -72,9 +69,7 @@ class HomeViewModel:ViewModel() {
     }
     private fun onGetAllCheapestSuccess(categoriesState:State<AllProductsResponse>){
         _cheapest.postValue(State.Loading)
-        categoriesState.toData()?.let {response->
-            _cheapest.postValue(State.Success(response))
-        }
+        _cheapest.postValue(categoriesState)
     }
     private fun onGetAllCheapestError(error:Throwable)
     {

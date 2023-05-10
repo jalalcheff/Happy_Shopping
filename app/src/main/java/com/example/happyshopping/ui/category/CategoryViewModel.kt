@@ -18,7 +18,7 @@ class CategoryViewModel:ViewModel() {
 
     private val _category = MutableLiveData<State<AllCategoriesResponse>>()
     val category : LiveData<State<AllCategoriesResponse>> get() = _category
-    val jalal = "jalal"
+
     init {
         getAllCategories()
     }
@@ -30,12 +30,7 @@ class CategoryViewModel:ViewModel() {
                 )
     }
     private fun onGetAllCategoriesSuccess(categoriesState:State<AllCategoriesResponse>){
-
-            categoriesState.toData()?.let {response->
-                _category.postValue(State.Success(response))
-                Log.i("jalalCheff",response[0])
-            }
-
+                _category.postValue(categoriesState)
     }
     private fun onGetAllCategoriesError(error:Throwable)
     {
