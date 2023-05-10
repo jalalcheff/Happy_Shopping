@@ -5,7 +5,6 @@
     android:id="@+id/navigation"
     app:startDestination="@id/categoryFragment">
 
-
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.happyshopping.ui.category.CategoryFragment"
