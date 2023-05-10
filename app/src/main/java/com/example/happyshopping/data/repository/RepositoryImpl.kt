@@ -1,6 +1,8 @@
 package com.example.happyshopping.data.repository
 
+import android.util.Log
 import com.example.happyshopping.data.model.AllCategoriesResponse
+import com.example.happyshopping.data.model.AllProductsResponse
 import com.example.happyshopping.data.remote.Api
 import com.example.happyshopping.data.remote.MarvelService
 import com.example.happyshopping.ui.util.State
@@ -26,8 +28,13 @@ class RepositoryImpl(val categories:MarvelService):IRepository {
         return wrapWithState{categories.getAllCategories()}
     }
 
-    private fun wrapWithState(allCategories:()-> Single<Response<AllCategoriesResponse>>): Observable<State<AllCategoriesResponse>> {
- return allCategories().map<State<AllCategoriesResponse>> { response->
+    override fun onGetAllProductsSuccess(): Observable<State<AllProductsResponse>> {
+
+        return wrapWithState { categories.getAllProducts() }
+    }
+
+    private fun <T>wrapWithState(allCategories:()-> Single<Response<T>>): Observable<State<T>> {
+ return allCategories().map<State<T>> { response->
     if (response.isSuccessful)
     {
         State.Success(response.body()!!)
